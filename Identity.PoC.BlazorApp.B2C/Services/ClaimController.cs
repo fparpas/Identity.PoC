@@ -8,7 +8,7 @@ namespace Identity.PoC.BlazorApp.B2C.Services
 {
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
+    [Authorize]
     public class ClaimController : ControllerBase
     {
         // GET: api/<ClaimController>
