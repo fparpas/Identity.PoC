@@ -33,7 +33,8 @@ namespace Identity.PoC.BlazorApp.B2C.Services
 
         // POST api/<ClaimController>
         [HttpPost]
-        public IActionResult Post([FromBody] JObject body)
+        //public IActionResult Post([FromBody] JObject body)
+             public IActionResult Post()
         {
             // Get the object id of the user that is signing in.
             //var objectId = body.GetValue("objectId").ToString();
