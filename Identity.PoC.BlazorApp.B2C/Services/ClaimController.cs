@@ -41,7 +41,7 @@ namespace Identity.PoC.BlazorApp.B2C.Services
 
             var responseProperties = new Dictionary<string, object>
               {
-                { "CustomClaim", "ClaimAdded" },
+                { "extension_33903e22-6c8a-4610-b44e-2a2265b0e234_CustomClaim", "ClaimAdded" },
                 { "CustomClaim2", "ClaimAdded2" }
               };
 
