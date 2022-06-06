@@ -1,6 +1,6 @@
 <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Identity.PoC.BlazorApp.B2C</a>
+        <a class="navbar-brand" href="">Azure Identity B2C Demo</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,8 +30,13 @@
             </NavLink>
         </div>*@
          <div class="nav-item px-3">
-            <NavLink class="nav-link" href="https://pparpasb2c.b2clogin.com/pparpasb2c.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_signin_signup&client_id=03914787-2ea5-4bb2-8ae8-cf0aa1f0bf3f&nonce=defaultNonce&redirect_uri=http%3A%2F%2Flocalhost%3A5299%2Fsignin-oidc&scope=openid&response_type=id_token&prompt=login">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Sign in \ Sign Up
+            <NavLink class="nav-link" href="https://pparpasb2c.b2clogin.com/pparpasb2c.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Login&client_id=0c45a8f1-5524-4bdc-b56e-2d5e7e4d7342&nonce=defaultNonce&redirect_uri=http%3A%2F%2Flocalhost%3A5114%2Fsignin-oidc&scope=openid&response_type=id_token&prompt=login">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Sign in
+            </NavLink>
+        </div>
+         <div class="nav-item px-3">
+            <NavLink class="nav-link" href="https://pparpasb2c.b2clogin.com/pparpasb2c.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_SignUp&client_id=0c45a8f1-5524-4bdc-b56e-2d5e7e4d7342&nonce=defaultNonce&redirect_uri=http%3A%2F%2Flocalhost%3A5114%2Fsignin-oidc&scope=openid&response_type=id_token&prompt=login">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Sign Up
             </NavLink>
         </div>
          <div class="nav-item px-3">
