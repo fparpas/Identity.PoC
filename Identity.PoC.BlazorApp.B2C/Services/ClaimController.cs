@@ -42,7 +42,7 @@ namespace Identity.PoC.BlazorApp.B2C.Services
             var responseProperties = new Dictionary<string, object>
               {
                 { "extension_33903e22-6c8a-4610-b44e-2a2265b0e234_CustomClaim", "ClaimAdded" },
-                { "CustomClaim2", "ClaimAdded2" }
+                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2", "ClaimAdded2" }
               };
 
             return new JsonResult(responseProperties) { StatusCode = 200 };
