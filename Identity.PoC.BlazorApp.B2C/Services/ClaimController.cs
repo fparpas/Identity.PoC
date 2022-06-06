@@ -21,11 +21,12 @@ namespace Identity.PoC.BlazorApp.B2C.Services
 
         // POST api/<ClaimController>
         [HttpPost]
-        public IActionResult Post([FromBody] JObject body)
+        public IActionResult Post([FromBody] object body)
         //public IActionResult Post()
         {
             // Get the object id of the user that is signing in.
-            var objectId = body.GetValue("objectId")?.ToString();
+            string requestBody = JObject.FromObject(body).ToString();
+            //var objectId = body.GetValue("objectId")?.ToString();
 
             string secret = _config["AzureAD:EnrichClaimSecret"];
             string token = _config["AzureAD:EnrichClaimToken"];
@@ -35,7 +36,7 @@ namespace Identity.PoC.BlazorApp.B2C.Services
                 var responseProperties = new Dictionary<string, object>
               {
                 { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim", token },
-                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2","test" }
+                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2",requestBody }
               };
 
                 return new JsonResult(responseProperties) { StatusCode = 200 };
