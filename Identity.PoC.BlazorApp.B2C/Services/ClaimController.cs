@@ -13,9 +13,15 @@ namespace Identity.PoC.BlazorApp.B2C.Services
     {
         // GET: api/<ClaimController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var responseProperties = new Dictionary<string, object>
+              {
+                { "CustomClaim", "ClaimAdded1" },
+                { "CustomClaim2", "ClaimAdded2" }
+              };
+
+            return new JsonResult(responseProperties) { StatusCode = 200 };
         }
 
         // GET api/<ClaimController>/5
