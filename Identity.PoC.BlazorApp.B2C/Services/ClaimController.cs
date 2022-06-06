@@ -28,7 +28,7 @@ namespace Identity.PoC.BlazorApp.B2C.Services
             // Get the object id of the user that is signing in.
             JsonElement objectId = new JsonElement();
             input.TryGetProperty("objectId", out objectId);
-
+            
             string secret = _config["AzureAD:EnrichClaimSecret"];
             string token = _config["AzureAD:EnrichClaimToken"];
 
@@ -38,7 +38,9 @@ namespace Identity.PoC.BlazorApp.B2C.Services
               {
                 { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim", token },
                 { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2","Custom Claim" },
-                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomObjectId",objectId.ToString() }
+                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomObjectId",objectId.ToString() },
+                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomInputClaims",input.ToString() },
+                    
               };
 
                 return new JsonResult(responseProperties) { StatusCode = 200 };
