@@ -11,6 +11,12 @@ namespace Identity.PoC.BlazorApp.B2C.Services
     [AllowAnonymous]
     public class ClaimController : ControllerBase
     {
+        private readonly IConfiguration _config;
+
+        public ClaimController(IConfiguration configuration)
+        {
+            _config = configuration;
+        }
         // GET: api/<ClaimController>
         [HttpGet]
         public IActionResult Get()
@@ -38,11 +44,11 @@ namespace Identity.PoC.BlazorApp.B2C.Services
         {
             // Get the object id of the user that is signing in.
             //var objectId = body.GetValue("objectId").ToString();
-
+            string secret = _config["AzureAD:EnrichClaimSecret"];
             var responseProperties = new Dictionary<string, object>
               {
                 { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim", "ClaimAdded" },
-                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2", "ClaimAdded2" }
+                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2",secret }
               };
 
             return new JsonResult(responseProperties) { StatusCode = 200 };
