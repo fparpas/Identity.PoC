@@ -36,12 +36,12 @@ namespace Identity.PoC.BlazorApp.B2C.Services
         public IActionResult Post([FromBody] JObject body)
         {
             // Get the object id of the user that is signing in.
-            var objectId = body.GetValue("objectId").ToString();
+            //var objectId = body.GetValue("objectId").ToString();
 
             var responseProperties = new Dictionary<string, object>
               {
-                { "CustomClaim", objectId },
-                { "CustomClaim2", "ClaimAdded" }
+                { "CustomClaim", "ClaimAdded" },
+                { "CustomClaim2", "ClaimAdded2" }
               };
 
             return new JsonResult(responseProperties) { StatusCode = 200 };
