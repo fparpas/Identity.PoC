@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using System.Text.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,12 +22,12 @@ namespace Identity.PoC.BlazorApp.B2C.Services
 
         // POST api/<ClaimController>
         [HttpPost]
-        public IActionResult Post([FromBody] object body)
+        public IActionResult Post([FromBody] JsonElement input)
         //public IActionResult Post()
         {
             // Get the object id of the user that is signing in.
-            string requestBody = JObject.FromObject(body).ToString();
-            //var objectId = body.GetValue("objectId")?.ToString();
+            JsonElement objectId = new JsonElement();
+            input.TryGetProperty("objectId", out objectId);
 
             string secret = _config["AzureAD:EnrichClaimSecret"];
             string token = _config["AzureAD:EnrichClaimToken"];
@@ -36,7 +37,8 @@ namespace Identity.PoC.BlazorApp.B2C.Services
                 var responseProperties = new Dictionary<string, object>
               {
                 { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim", token },
-                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2",requestBody }
+                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2","Custom Claim" },
+                { "extension_33903e226c8a4610b44e2a2265b0e234_CustomObjectId",objectId.ToString() }
               };
 
                 return new JsonResult(responseProperties) { StatusCode = 200 };
