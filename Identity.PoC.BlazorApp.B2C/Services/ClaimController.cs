@@ -80,7 +80,7 @@ namespace Identity.PoC.BlazorApp.B2C.Services
                         }
                         else
                         {
-                            if (string.Compare(values[0], user, false) != 0)
+                            if (string.Compare(values[0], user, true) != 0)
                             {
                                 return false;
                             }
