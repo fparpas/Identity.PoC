@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using System.Text;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,55 +18,85 @@ namespace Identity.PoC.BlazorApp.B2C.Services
         {
             _config = configuration;
         }
-        // GET: api/<ClaimController>
-        [HttpGet]
-        public IActionResult Get()
-        {
-            var responseProperties = new Dictionary<string, object>
-              {
-                { "CustomClaim", "ClaimAdded1" },
-                { "CustomClaim2", "ClaimAdded2" }
-              };
-
-            return new JsonResult(responseProperties) { StatusCode = 200 };
-        }
-
-        // GET api/<ClaimController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST api/<ClaimController>
         [HttpPost]
         //public IActionResult Post([FromBody] JObject body)
-             public IActionResult Post()
+        public IActionResult Post()
         {
             // Get the object id of the user that is signing in.
             //var objectId = body.GetValue("objectId").ToString();
             string secret = _config["AzureAD:EnrichClaimSecret"];
             string token = _config["AzureAD:EnrichClaimToken"];
-            
-            var responseProperties = new Dictionary<string, object>
+
+            if (IsAuthorized(token, secret))
+            {
+                var responseProperties = new Dictionary<string, object>
               {
                 { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim", token },
                 { "extension_33903e226c8a4610b44e2a2265b0e234_CustomClaim2",secret }
               };
 
-            return new JsonResult(responseProperties) { StatusCode = 200 };
+                return new JsonResult(responseProperties) { StatusCode = 200 };
+            }
+            else
+            {
+                return Unauthorized();
+            }
         }
 
-        // PUT api/<ClaimController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        private bool IsAuthorized(string user, string secret)
         {
-        }
+            string authHeader = Request.Headers["Authorization"].ToString();
 
-        // DELETE api/<ClaimController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            if (String.IsNullOrEmpty(authHeader))
+            {
+                return false;
+            }
+            else if (!authHeader.StartsWith("Basic "))
+            {
+                return false;
+            }
+            else
+            {
+                var inputs = authHeader.Split(" ");
+                if (inputs == null || inputs.Count() != 2)
+                {
+                    return false;
+                }
+                else
+                {
+                    string decoded = Encoding.UTF8.GetString(Convert.FromBase64String(inputs[1]));
+                    if (String.IsNullOrEmpty(decoded))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        var values = decoded.Split(":");
+                        if (values == null || values.Count() != 2)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            if (string.Compare(values[0], user, true) != 0)
+                            {
+                                return false;
+                            }
+                            else if (string.Compare(values[1], secret, true) != 0)
+                            {
+                                return false;
+                            }
+                            else
+                            {
+                                return true;
+                            }
+
+                        }
+                    }
+                }
+            }
         }
     }
 }
