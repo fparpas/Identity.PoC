@@ -34,11 +34,8 @@ namespace Identity.PoC.BlazorApp.B2C.Services
 
             var responseProperties = new Dictionary<string, object>
               {
-                          { "version", "1.0.0" },
-                          { "action", "Continue" },
-                          { "postalCode", "12349" },
-                          { "userId", 123 },
-                        { "cutomobjectid", objectId }
+                { "CustomClaim", objectId },
+                { "CustomClaim2", "ClaimAdded" }
               };
 
             return new JsonResult(responseProperties) { StatusCode = 200 };
