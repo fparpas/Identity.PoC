@@ -2,7 +2,7 @@ name: Build and deploy .NET Core application to Web App IdentityPoCBlazorAppB2C
 on:
   push:
     branches:
-    - master
+    - master/Identity.PoC.BlazorApp.B2C
 env:
   AZURE_WEBAPP_NAME: IdentityPoCBlazorAppB2C
   AZURE_WEBAPP_PACKAGE_PATH: Identity.PoC.BlazorApp.B2C\published
