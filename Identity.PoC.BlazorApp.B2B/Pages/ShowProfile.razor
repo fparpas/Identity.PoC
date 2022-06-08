@@ -1,44 +1,55 @@
 @page "/showprofile"
 
-@using Microsoft.Identity.Web
+@using Microsoft.AspNetCore.Components.Authorization@using Microsoft.Identity.Web
 @using Microsoft.Graph
+@using System.Security.Claims
 @inject Microsoft.Graph.GraphServiceClient GraphServiceClient
 @inject MicrosoftIdentityConsentAndConditionalAccessHandler ConsentHandler
 
-<h1>Me</h1>
+<AuthorizeView>
+    <Authorized>
+        <h1>Me</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
+        <p>This component demonstrates fetching data from a service.</p>
 
-@if (user == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table table-striped table-condensed" style="font-family: monospace">
-        <tr>
-            <th>Property</th>
-            <th>Value</th>
-        </tr>
-        <tr>
-            <td>Name</td>
-            <td>@user.DisplayName</td>
-        </tr>
-    </table>
-}
-
+        @if (user == null)
+        {
+            <p><em>Loading...</em></p>
+        }
+        else
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Claim Type</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in user.Claims)
+                    {
+                        <tr>
+                            <td>@item.Type</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+    </Authorized>
+</AuthorizeView>
 @code {
-    User? user;
+    ClaimsPrincipal? user;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            user = await GraphServiceClient.Me.Request().GetAsync();
+            user = ConsentHandler.User;
         }
         catch (Exception ex)
         {
             ConsentHandler.HandleException(ex);
         }
     }
-}
+                }
