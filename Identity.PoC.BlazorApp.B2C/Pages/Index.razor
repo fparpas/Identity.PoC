@@ -5,7 +5,11 @@
 <h1>What is Azure Active Directory B2C?</h1>
 
 <p>Azure Active Directory B2C provides business-to-customer identity as a service. Your customers use their preferred social, enterprise, or local account identities to get single sign-on access to your applications and APIs.</p>
-<p><img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/azureadb2c-overview.png" alt="Infographic of Azure AD B2C identity providers and downstream applications" data-linktype="relative-path" /></p>
+<p>
+    <div class="container">
+        <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/azureadb2c-overview.png" alt="Infographic of Azure AD B2C identity providers and downstream applications" data-linktype="relative-path" />
+    </div>
+</p>
 <p>Azure AD B2C is a customer identity access management (CIAM) solution capable of supporting millions of users and billions of authentications per day. It takes care of the scaling and safety of the authentication platform, monitoring, and automatically handling threats like denial-of-service, password spray, or brute force attacks.</p>
 <p>Azure AD B2C is a separate service from <a href="https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis" data-linktype="relative-path">Azure Active Directory (Azure AD)</a>. It is built on the same technology as Azure AD but for a different purpose. It allows businesses to build customer facing applications, and then allow anyone to sign up into those applications with no restrictions on user account.</p>
 <h2 id="who-uses-azure-ad-b2c">Who uses Azure AD B2C?</h2>
@@ -13,12 +17,18 @@
 <h2 id="custom-branded-identity-solution">Custom-branded identity solution</h2>
 <p>Azure AD B2C is a white-label authentication solution. You can customize the entire user experience with your brand so that it blends seamlessly with your web and mobile applications.</p>
 <p>Customize every page displayed by Azure AD B2C when your users sign up, sign in, and modify their profile information. Customize the HTML, CSS, and JavaScript in your user journeys so that the Azure AD B2C experience looks and feels like it's a native part of your application.</p>
-<p><img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/sign-in-small.png" alt="Customized sign-up and sign-in pages and background image" data-linktype="relative-path" /></p>
+<p>
+    <div class="container">
+        <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/sign-in-small.png" alt="Customized sign-up and sign-in pages and background image" data-linktype="relative-path" />
+    </div>
+</p>
 <h2 id="single-sign-on-access-with-a-user-provided-identity">Single sign-on access with a user-provided identity</h2>
 <p>Azure AD B2C uses standards-based authentication protocols including OpenID Connect, OAuth 2.0, and Security Assertion Markup Language (SAML). It integrates with most modern applications and commercial off-the-shelf software.</p>
 <p>
     <span class="mx-imgBorder">
-        <img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-singlesignon.png" alt="Diagram of third-party identities federating to Azure AD B2C." data-linktype="relative-path">
+        <div class="container">
+            <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-singlesignon.png" alt="Diagram of third-party identities federating to Azure AD B2C." data-linktype="relative-path">
+        </div>
     </span>
 </p>
 <p>By serving as the central authentication authority for your web applications, mobile apps, and APIs, Azure AD B2C enables you to build a single sign-on (SSO) solution for them all. Centralize the collection of user profile and preference information, and capture detailed analytics about sign-in behavior and sign-up conversion.</p>
@@ -27,7 +37,9 @@
 <p>Another external user store scenario is to have Azure AD B2C handle the authentication for your application, but integrate with an external system that stores user profile or personal data. For example, to satisfy data residency requirements like regional or on-premises data storage policies. However, Azure AD B2C service itself is worldwide via the Azure public cloud.</p>
 <p>
     <span class="mx-imgBorder">
-        <img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-remoteprofile.png" alt="A logical diagram of Azure AD B2C communicating with an external user store." data-linktype="relative-path">
+        <div class="container">
+            <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-remoteprofile.png" alt="A logical diagram of Azure AD B2C communicating with an external user store." data-linktype="relative-path">
+        </div>
     </span>
 </p>
 <p>Azure AD B2C can facilitate collecting the information from the user during registration or profile editing, then hand that data off to the external system via API. Then, during future authentications, Azure AD B2C can retrieve the data from the external system and, if needed, include it as a part of the authentication token response it sends to your application.</p>
@@ -35,14 +47,18 @@
 <p>Another user journey option includes progressive profiling. Progressive profiling allows your customers to quickly complete their first transaction by collecting a minimal amount of information. Then, gradually collect more profile data from the customer on future sign-ins.</p>
 <p>
     <span class="mx-imgBorder">
-        <img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-progressive.png" alt="A visual depiction of progressive profiling." data-linktype="relative-path">
+        <div class="container">
+            <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-progressive.png" alt="A visual depiction of progressive profiling." data-linktype="relative-path">
+        </div>
     </span>
 </p>
 <h2 id="third-party-identity-verification-and-proofing">Third-party identity verification and proofing</h2>
 <p>Use Azure AD B2C to facilitate identity verification and proofing by collecting user data, then passing it to a third-party system to perform validation, trust scoring, and approval for user account creation.</p>
 <p>
     <span class="mx-imgBorder">
-        <img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-idproofing.png" alt="A diagram showing the user flow for third-party identity proofing." data-linktype="relative-path">
+        <div class="container">
+            <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/scenario-idproofing.png" alt="A diagram showing the user flow for third-party identity proofing." data-linktype="relative-path">
+        </div>
     </span>
 </p>
 <p>You have learned some of the things you can do with Azure AD B2C as your business-to-customer identity platform. The following sections of this overview walk you through a demo application that uses Azure AD B2C. You're also welcome to move on directly to a more in-depth <a href="technical-overview" data-linktype="relative-path">technical overview of Azure AD B2C</a>.</p>
@@ -57,16 +73,32 @@
     <li><strong>Business</strong> customers can sign up or sign in with their enterprise credentials.</li>
     <li><strong>Partners</strong> and suppliers are individuals who supply the grocery store with products to sell. Partner identity is provided by <a href="https://docs.microsoft.com/en-us/azure/active-directory/external-identities/what-is-b2b" data-linktype="relative-path">Azure Active Directory B2B</a>.</li>
 </ul>
-<p><img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/woodgrove-overview.png" alt="Individual (B2C), business (B2C), and partner (B2B) sign-in pages" data-linktype="relative-path" /></p>
+<p>
+    <div class="container">
+        <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/woodgrove-overview.png" alt="Individual (B2C), business (B2C), and partner (B2B) sign-in pages" data-linktype="relative-path" />
+    </div>
+</p>
 <h3 id="authenticate-individual-customers">Authenticate individual customers</h3>
 <p>When a customer selects <strong>Sign in with your personal account</strong>, they're redirected to a customized sign-in page hosted by Azure AD B2C. You can see in the following image that we've customized the user interface (UI) to look and feel just like the WoodGrove Groceries website. WoodGrove's customers should be unaware that the authentication experience is hosted and secured by Azure AD B2C.</p>
-<p><img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/sign-in.png" alt="Custom WoodGrove sign-in page hosted by Azure AD B2C" data-linktype="relative-path" /></p>
+<p>
+    <div class="container">
+        <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/sign-in.png" alt="Custom WoodGrove sign-in page hosted by Azure AD B2C" data-linktype="relative-path" />
+    </div>
+</p>
 <p>WoodGrove allows their customers to sign up and sign in by using their Google, Facebook, or Microsoft accounts as their identity provider. Or, they can sign up by using their email address and a password to create what's called a <em>local account</em>.</p>
 <p>When a customer selects <strong>Sign up with your personal account</strong> and then <strong>Sign up now</strong>, they're presented with a custom sign-up page.</p>
-<p><img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/sign-up.png" alt="Custom WoodGrove sign-up page hosted by Azure AD B2C" data-linktype="relative-path" /></p>
+<p>
+    <div class="container">
+        <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/sign-up.png" alt="Custom WoodGrove sign-up page hosted by Azure AD B2C" data-linktype="relative-path" />
+    </div>
+    </p>
 <p>After entering an email address and selecting <strong>Send verification code</strong>, Azure AD B2C sends them the code. Once they enter their code, select <strong>Verify code</strong>, and then enter the other information on the form, they must also agree to the terms of service.</p>
 <p>Clicking the <strong>Create</strong> button causes Azure AD B2C to redirect the user back to the WoodGrove Groceries website. When it redirects, Azure AD B2C passes an OpenID Connect authentication token to the WoodGrove web application. The user is now signed-in and ready to go, their display name shown in the top-right corner to indicate they're signed in.</p>
-<p><img src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/signed-in-individual.png" alt="WoodGrove Groceries website header showing user is signed in" data-linktype="relative-path" /></p>
+<p>
+    <div class="container">
+        <img class="center-block" src="https://docs.microsoft.com/en-us/azure/active-directory-b2c/media/overview/signed-in-individual.png" alt="WoodGrove Groceries website header showing user is signed in" data-linktype="relative-path" />
+    </div>
+    </p>
 <h3 id="authenticate-business-customers">Authenticate business customers</h3>
 <p>When a customer selects one of the options under <strong>Business customers</strong>, the WoodGrove Groceries website invokes a different Azure AD <em>B2C policy</em> than it does for individual customers. You learn what a <em>B2C policy</em> is in <a href="technical-overview" data-linktype="relative-path">technical overview of Azure AD B2C</a></p>
 <p>This policy presents the user with an option to use their corporate credentials for sign-up and sign-in. In the WoodGrove example, users are prompted to sign in with any work or school account. This policy uses a <a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-convert-app-to-be-multi-tenant" data-linktype="relative-path">multi-tenant Azure AD application</a> and the <code>/common</code> Azure AD endpoint to federate Azure AD B2C with any Microsoft 365 customer in the world.</p>
@@ -74,5 +106,4 @@
 <p>The <strong>Sign in with your supplier account</strong> link uses Azure Active Directory B2B's collaboration functionality. Azure AD B2B is a family of features in Azure Active Directory to manage partner identities. Those identities can be federated from Azure Active Directory for access into Azure AD B2C-protected applications.</p>
 <p>Learn more about Azure AD B2B in <a href="https://docs.microsoft.com/en-us/azure/active-directory/external-identities/what-is-b2b" data-linktype="relative-path">What is guest user access in Azure Active Directory B2B?</a>.</p>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
 
